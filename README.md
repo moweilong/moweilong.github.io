@@ -1,4 +1,4 @@
-# [moweilong.com](https://moweilong.com)
+# [moweilong.com](https://wiki.moweilong.com)
 
 - This is Moweilong's front-end technology blog.
 - Commonly used to record learning and research front-end technology.

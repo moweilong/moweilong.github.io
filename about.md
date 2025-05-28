@@ -7,7 +7,7 @@ hideHomeActive: true
 
 ## 关于我
 
-- 在 [**Moweilong**](https://moweilong.com/) 博客沉淀我的技术/生活/思考方式。
+- 在 [**Moweilong**](https://wiki.moweilong.com/) 博客沉淀我的技术/生活/思考方式。
 
 ## 关注我
 
