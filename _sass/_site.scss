@@ -1,14 +1,18 @@
+@use "sass:color"; // 必须放在最顶部
+@use "variables" as *; // 新增：导入 variables 文件以获取 $base-color 变量
+@use "mixins" as *; // 修改此处，添加 `as *` 全局导入 mixin
+
 // Selection
 // --------------------------------------------------
 ::-moz-selection {
-	background-color: lighten($base-color, 65%);
-	color: $base-color;
-	text-shadow: none;
+    background-color: color.adjust($base-color, $lightness: 65%);
+    color: $base-color;
+    text-shadow: none;
 }
 ::selection {
-	background-color: lighten($base-color, 65%);
-	color: $base-color;
-	text-shadow: none;
+    background-color: color.adjust($base-color, $lightness: 65%);
+    color: $base-color;
+    text-shadow: none;
 }
 
 // Global Classes

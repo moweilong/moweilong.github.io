@@ -1,3 +1,6 @@
+@use "sass:color"; // 必须放在最顶部
+@use "mixins" as *; // 修改此处，添加 `as *` 全局导入 mixin
+
 //
 // Reset CSS
 // Adapted from http://github.com/necolas/normalize.css
@@ -48,7 +51,7 @@ html {
 }
 // Focus states
 a:focus {
-  @include tab-focus();
+  @include tab-focus(); // 现在可以直接调用
 }
 // Hover & Active
 a:hover,

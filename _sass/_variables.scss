@@ -1,3 +1,5 @@
+@use "sass:color"; // 必须放在最顶部
+
 // Typography
 // --------------------------------------------------
 
@@ -27,8 +29,8 @@ $menu-height: 60px;
 $menu-overflow: #24292F;
 $body-color: #e8e8e8;
 $text-color: rgba(#24292F, 0.9);
-$comp-color: complement(#24292F);
-$border-color: lighten(#24292F, 60);
+$comp-color: color.complement(#24292F);
+$border-color: color.adjust(#24292F, $lightness: 60%);
 $white: #fff;
 $black: #000;
 $link-color: rgba(#24292F, 0.8);
@@ -38,7 +40,6 @@ $success: #5cb85c;
 $warning: #dd8338;
 $danger: #C64537;
 $info: #308cbc;
-
 // Screen Size
 // --------------------------------------------------
 

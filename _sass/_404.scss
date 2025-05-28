@@ -1,4 +1,8 @@
 
+@use "variables" as *; // Add this line to import variables
+@use "mixins" as *;
+@use "sass:color";
+
 svg#robot {
   display: block;
   position: relative;

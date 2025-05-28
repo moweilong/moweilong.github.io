@@ -1,3 +1,7 @@
+@use "variables" as *;
+@use "mixins" as *;
+@use "sass:color";
+
 hr {
     display: block;
     margin: 1em 0;
@@ -14,7 +18,7 @@ figure {
   margin: 0;
   padding-top: 10px;
   padding-bottom: 10px;
-  @include clearfix();
+  @include clearfix(); // Now uses the imported mixin
   img {
     margin-bottom: 10px;
   }
@@ -70,7 +74,7 @@ figure.center img{
   margin-bottom: 20px;
   padding: 8px 20px;
   @include font-rem(14);
-  background-color: $primary;
+  background-color: $primary; // Now uses the imported $primary variable
   color: $white;
   border-width: 2px !important;
   border-style: solid !important;

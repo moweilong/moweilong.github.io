@@ -1,3 +1,7 @@
+@use "variables" as *;
+@use "mixins" as *;
+@use "sass:color";
+
 .CodeRay {
   font-family: $code-font;
   @include font(12);
@@ -10,7 +14,7 @@
   margin: 0;
   padding: 1em;
   background-color: #272822;
-  border: 1px solid darken($body-color, 5);
+  border: 1px solid color.adjust($body-color, $lightness: -5%); // Replaced darken() with color.adjust()
 }
 
 span.CodeRay { white-space: pre; border: 0px; padding: 2px }

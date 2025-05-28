@@ -1,11 +1,12 @@
 // UTILITY MIXINS
 // --------------------------------------------------
+@use "variables" as *; // 新增：导入 variables 文件以获取 $doc-font-size 变量
+@use "sass:math"; // 移动到此处，确保在所有其他规则之前
+@use "sass:color";
 
 // Clearfix
 // --------------------
 // For clearing floats like a boss h5bp.com/q
-@use "sass:math";
-
 @mixin clearfix {
   zoom: 1;
   &:before,
@@ -23,7 +24,7 @@
 
 
 @mixin need-dotted{
-  border-bottom: 1px dotted lighten($link-color, 50);
+  border-bottom: 1px dotted color.adjust($link-color, $lightness: 50%); // Replaced lighten() with color.adjust()
   &:hover {
     border-bottom-style: solid;
   }
@@ -61,9 +62,10 @@
 
 // Just the REMs
 // -------------
+
+
 @mixin font-rem($size) {
-  font-size: 0px + $size;
-  font-size: 0rem + math.div($size, $doc-font-size);
+  font-size: 0rem + math.div($size, $doc-font-size); // 现在可以正确识别 $doc-font-size 变量
 }
 
 // Just font-size and line-height

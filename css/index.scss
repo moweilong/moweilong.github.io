@@ -3,15 +3,15 @@ sitemap: false
 ---
 
 // Partials
-@import "variables";
-@import "mixins";
-@import "reset";
-@import "site";
-@import "typography";
-@import "rouge";
-@import "coderay";
-@import "grid";
-@import "elements";
-@import "animations";
-@import "page";
-@import "404";
+@use "variables" as *;
+@use "mixins" as *;
+@use "reset" as *;
+@use "site" as *;
+@use "typography" as *;
+@use "rouge" as *;
+@use "coderay" as *;
+@use "grid" as *;
+@use "elements" as *;
+@use "animations" as *;
+@use "page" as *;
+@use "404" as *;
