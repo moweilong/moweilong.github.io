@@ -50,7 +50,7 @@ const teekConfig = defineTeekConfig({
     showMore: true, // 是否显示更多按钮
   },
 
-  author: { name: "老莫想吃鱼了", link: "https://moweilong.com/" }, // 作者信息
+  author: { name: "老莫想吃鱼了", link: "https://wiki.moweilong.com/" }, // 作者信息
 
   articleAnalyze: {
     imageViewer: { hideOnClickModal: true }, // 图片预览是否点击遮罩层关闭}
