@@ -2,15 +2,24 @@
 import { defineConfig } from "vitepress";
 import { defineTeekConfig } from "vitepress-theme-teek/config";
 
+import {
+  groupIconMdPlugin,
+  groupIconVitePlugin,
+} from "vitepress-plugin-group-icons"; // 导入代码组图标插件
 import timeline from "vitepress-markdown-timeline"; // 导入时间线插件
-import { groupIconMdPlugin, groupIconVitePlugin } from "vitepress-plugin-group-icons"; // 导入代码组图标插件
 import { La51Plugin } from "vitepress-plugin-51la"; //导入 51la统计
+import { Nav } from "./ConfigHyde/Nav"; // 导入Nav模块
+import type { HeadConfig } from "vitepress"; // 在文件顶部添加类型导入
+import { HeadData } from "./ConfigHyde/Head"; // 导入 HeadData 导入和类型断言
+import { SocialLinks } from "./ConfigHyde/SocialLinks"; //导入社交链接配置
 import { CommentData } from "./ConfigHyde/Comment"; //导入评论配置
 import { Wallpaper } from "./ConfigHyde/Wallaper"; // 导入Wallaper模块
+import { visualizer } from "rollup-plugin-visualizer"; // 导入可视化分析插件
+import viteImagemin from "vite-plugin-imagemin"; // 导入图片压缩插件
+import llmstxt from "vitepress-plugin-llms"; // 导入llmstxt插件
 
 const description = [
-  "欢迎来到 vitepress-theme-teek 使用文档",
-  "Teek 是一个基于 VitePress 构建的主题，是在默认主题的基础上进行拓展，支持 VitePress 的所有功能、配置",
+  "欢迎来到老莫想吃鱼知识库",
   "温故而知新，忘记了，就回来看看！",
 ].toString();
 
@@ -20,13 +29,10 @@ const CoverImgList = Wallpaper; // 获取壁纸列表
 const teekConfig = defineTeekConfig({
   // 全局配置
   // https://vp.teek.top/reference/config/global-config.html#%E5%85%A8%E5%B1%80%E9%85%8D%E7%BD%AE
-  teekTheme: true, // 是否启用主题
-  teekHome: true, // 是否启用 Teek 的首页风格
-  vpHome: false, // 是否启用 VitePress 首页风格
-  homeCardListPosition: "left", // 首页卡片栏列表位置
-  anchorScroll: true, // 是否启用锚点滚动功能，即阅读文章时，自动将 h1 ~ h6 标题添加到地址栏 # 后面。
-  viewTransition: true, //深色、浅色模式切换时是否开启过渡动画。
-  themeSize: "default",
+  // 转到配置文件 docs/.vitepress/theme/config/teekConfig.ts 
+  // teekTheme: true, // 是否启用主题
+  // teekHome: true, // 是否启用 Teek 的首页风格
+  // vpHome: false, // 是否启用 VitePress 首页风格
   backTopDone: TkMessage => TkMessage.success({
     message:"已达到顶部🎉",
     duration: 3000,
@@ -50,7 +56,7 @@ const teekConfig = defineTeekConfig({
     showMore: true, // 是否显示更多按钮
   },
 
-  author: { name: "老莫想吃鱼了", link: "https://wiki.moweilong.com/" }, // 作者信息
+  // author: { name: "老莫想吃鱼了", link: "https://wiki.moweilong.com/" }, // 作者信息
 
   articleAnalyze: {
     imageViewer: { hideOnClickModal: true }, // 图片预览是否点击遮罩层关闭}
@@ -167,6 +173,27 @@ const teekConfig = defineTeekConfig({
     // },
   ],
 
+  // 赞赏在文章下方
+  appreciation: {
+    position: "doc-after",
+    options: {
+      // buttonHtml: `<button>测试按钮</button>`,
+      icon: "weChatPay", // 赞赏图标，内置 weChatPay 和 alipay
+      expandTitle: "打赏支持", // 展开标题，支持 HTML
+      collapseTitle: "下次一定", // 折叠标题，支持 HTML
+      content: `<img src='/img/alipay/1.png'><img src='/img/alipay/2.png'>`, // 赞赏内容，支持 HTML
+      expand: false, // 是否默认展开，默认 false
+    },
+  },
+  // 赞赏在 文章导航栏下侧
+  // appreciation: {
+  //   position: "aside-bottom",
+  //   options: {
+  //     title: `<span style="color: var(--tk-theme-color)">欢迎打赏支持</span>`, // 赞赏标题，支持 HTML
+  //     content: `<img src='/appreciation/WeChatPay.jpg'><img src='/appreciation/Alipay.jpg'>`, // 赞赏内容，支持 HTML
+  //   },
+  // },
+
   articleShare: { enabled: true }, // 文章分享
 
   // 分类卡片
@@ -191,6 +218,21 @@ const teekConfig = defineTeekConfig({
     autoPage: false, // 是否自动翻页
     pageSpeed: 4000, // 翻页间隔时间，单位：毫秒。autoPage 为 true 时生效
     dateFormat: "yyyy-MM-dd hh:mm:ss", // 精选文章的日期格式
+  },
+
+  // 布蒜子统计分析
+  docAnalysis: {
+    createTime: "2021-10-19",
+    statistics: {
+      provider: "busuanzi",
+    },
+    wordCount: true,
+    readingTime: true,
+    // overrideInfo: [
+    //   { key: "lastActiveTime", value: (_, currentValue) => `${currentValue}前` },
+    //   { key: "totalPosts", label: "文章总数目" },
+    // ],
+    appendInfo: [{ key: "index", label: "序号", value: "One" }],
   },
 
   // 风险链接提示页
@@ -270,331 +312,9 @@ export default defineConfig({
       next: "下一页",
     },
 
-    nav: [
-      { text: "🏡首页", link: "/" },
+    nav: Nav, // 导航栏配置
 
-      // 笔记
-      {
-        text: '🗃️笔记',
-        items: [
-          {
-            // 分组标题1
-            text: '运维',
-            items: [
-              {
-                text: `
-                  <div style="display: flex; align-items: center; gap: 4px;">
-                    <img src="/img/nav/linux.svg" alt="" style="width: 16px; height: 16px;">
-                    <span>Linux</span>
-                  </div>
-                  `,
-                link: '/linux',
-              },
-              {
-                text: `
-                  <div style="display: flex; align-items: center; gap: 4px;">
-                    <img src="/img/nav/nginx.png" alt="" style="width: 16px; height: 16px;">
-                    <span>Nginx</span>
-                  </div>
-                  `,
-                link: '/nginx',
-              },
-            ],
-          },
-          {
-            // 分组标题2
-            text: '前端',
-            items: [
-              {
-                text: `
-                  <div style="display: flex; align-items: center; gap: 4px;">
-                    <img src="/img/nav/html.png" alt="" style="width: 16px; height: 16px;">
-                    <span>Html</span>
-                  </div>
-                  `,
-                link: '/html',
-              },
-              {
-                text: `
-                  <div style="display: flex; align-items: center; gap: 4px;">
-                    <img src="/img/nav/css.png" alt="" style="width: 16px; height: 16px;">
-                    <span>Css</span>
-                  </div>
-                  `,
-                link: '/css',
-              },
-            ],
-          },
-        {
-            // 分组标题3
-            text: '编程',
-            items: [
-              {
-                text: `
-                  <div style="display: flex; align-items: center; gap: 4px;">
-                    <img src="/img/nav/python.png" alt="" style="width: 16px; height: 16px;">
-                    <span>Python</span>
-                  </div>
-                  `,
-                link: '/python',
-              },
-              {
-                text: `
-                  <div style="display: flex; align-items: center; gap: 4px;">
-                    <img src="/img/nav/go.svg" alt="" style="width: 16px; height: 16px;">
-                    <span>Go</span>
-                  </div>
-                  `,
-                link: '/go',
-              },
-            ],
-          },
-          {
-            text: '专题',
-            items: [
-              {
-                text: `
-                  <div style="display: flex; align-items: center; gap: 4px;">
-                    <img src="/img/nav/博客.svg" alt="" style="width: 16px; height: 16px;">
-                    <span>博客搭建</span>
-                  </div>
-                  `,
-                link: '/blog',
-              },
-              {
-                text: `
-                  <div style="display: flex; align-items: center; gap: 4px;">
-                    <img src="/img/nav/前端demo.svg" alt="" style="width: 16px; height: 16px;">
-                    <span>前端demo</span>
-                  </div>
-                  `,
-                link: '/qianduan-demo',
-              },
-              {
-                text: `
-                  <div style="display: flex; align-items: center; gap: 4px;">
-                    <img src="/img/nav/Git.svg" alt="" style="width: 16px; height: 16px;">
-                    <span>Git</span>
-                  </div>
-                  `,
-                link: '/git',
-              },
-              {
-                text: `
-                  <div style="display: flex; align-items: center; gap: 4px;">
-                    <img src="/img/nav/面试.svg" alt="" style="width: 16px; height: 16px;">
-                    <span>面试</span>
-                  </div>
-                  `,
-                link: '/mianshi',
-              },
-              {
-                text: `
-                  <div style="display: flex; align-items: center; gap: 4px;">
-                    <img src="/img/nav/NAS.svg" alt="" style="width: 16px; height: 16px;">
-                    <span>NAS</span>
-                  </div>
-                  `,
-                link: '/NAS',
-              },
-              {
-                text: `
-                  <div style="display: flex; align-items: center; gap: 4px;">
-                    <img src="/img/nav/脚本.svg" alt="" style="width: 16px; height: 16px;">
-                    <span>脚本</span>
-                  </div>
-                  `,
-                link: '/jiaoben',
-              },
-              {
-                text: `
-                  <div style="display: flex; align-items: center; gap: 4px;">
-                    <img src="/img/nav/工具.svg" alt="" style="width: 16px; height: 16px;">
-                    <span>工具</span>
-                  </div>
-                  `,
-                link: '/tools',
-              },
-            ],
-          },
-          {
-            text: '开源项目',
-            items: [
-              {
-                text: `
-                  <div style="display: flex; align-items: center; gap: 4px;">
-                    <img src="/img/nav/teek.svg" alt="" style="width: 16px; height: 16px;">
-                    <span>Teek-one</span>
-                  </div>
-                  `,
-                link: '/teek',
-              },
-              {
-                text: `
-                  <div style="display: flex; align-items: center; gap: 4px;">
-                    <img src="/img/nav/Typora.svg" alt="" style="width: 16px; height: 16px;">
-                    <span>Typora-one</span>
-                  </div>
-                  `,
-                link: '/typora-theme-one',
-              },
-              
-            ],
-          },
-        ],
-      },  
-
-      // 生活
-      {
-        text: '🏓生活',
-        items: [
-          {
-            // 分组标题1
-            text: '娱乐',
-            items: [
-              {
-                text: `
-                  <div style="display: flex; align-items: center; gap: 4px;">
-                    <img src="/img/nav/相册.svg" alt="" style="width: 16px; height: 16px;">
-                    <span>相册</span>
-                  </div>
-                  `,
-                link: 'https://photo.onedayxyy.cn/',
-              },
-              {
-                text: `
-                  <div style="display: flex; align-items: center; gap: 4px;">
-                    <img src="/img/nav/电影.svg" alt="" style="width: 16px; height: 16px;">
-                    <span>电影</span>
-                  </div>
-                  `,
-                link: '/movie',
-              },
-              {
-                text: `
-                  <div style="display: flex; align-items: center; gap: 4px;">
-                    <img src="/img/nav/音乐.svg" alt="" style="width: 16px; height: 16px;">
-                    <span>音乐</span>
-                  </div>
-                  `,
-                link: '/music',
-              },
-            ],
-          },
-          {
-            // 分组标题2
-            text: '小屋',
-            items: [
-              {
-                text: `
-                  <div style="display: flex; align-items: center; gap: 4px;">
-                    <img src="/img/nav/精神小屋.svg" alt="" style="width: 16px; height: 16px;">
-                    <span>精神小屋</span>
-                  </div>
-                  `,
-                link: '/love',
-              },
-              {
-                text: `
-                  <div style="display: flex; align-items: center; gap: 4px;">
-                    <img src="/img/nav/时间管理.svg" alt="" style="width: 16px; height: 16px;">
-                    <span>时间管理</span>
-                  </div>
-                  `,
-                link: '/time-plan',
-              },
-            ],
-          },
-        ],
-      },  
-
-      // 索引
-      {
-        text: '👏索引',
-        items: [
-          { text: '📃分类页', link: '/categories' },
-          { text: '🔖标签页', link: '/tags' },
-          {
-            text: `
-              <div style="display: flex; align-items: center; gap: 4px;">
-                <img src="/img/nav/归档.svg" alt="" style="width: 16px; height: 16px;">
-                <span>归档页</span>
-              </div>
-              `,
-            link: '/archives',
-          },
-          {
-            text: `
-              <div style="display: flex; align-items: center; gap: 4px;">
-                <img src="/img/nav/清单.svg" alt="" style="width: 16px; height: 16px;">
-                <span>清单页</span>
-              </div>
-              `,
-            link: '/articleOverview',
-          },
-          {
-            text: `
-              <div style="display: flex; align-items: center; gap: 4px;">
-                <img src="/img/nav/登录.svg" alt="" style="width: 16px; height: 16px;">
-                <span>登录页</span>
-              </div>
-              `,
-            link: '/login',
-          },
-          {
-            text: `
-              <div style="display: flex; align-items: center; gap: 4px;">
-                <img src="/img/nav/风险提示.svg" alt="" style="width: 16px; height: 16px;">
-                <span>风险链接提示页</span>
-              </div>
-              `,
-            link: '/risk-link?target=https://onedayxyy.cn/',
-          },
-        ],
-      },  
-
-      // 关于
-      {
-        text: '🍷关于',
-        items: [
-          { text: '👋关于我', link: '/about-me' },
-          { text: '🎉关于本站', link: '/about-website' },
-          { text: '🌐网站导航', link: '/websites' },          
-          { text: "👂留言区", link: "/liuyanqu" },
-          { text: "💡思考", link: "/thinking" },
-          {
-            text: `
-              <div style="display: flex; align-items: center; gap: 4px;">
-                <img src="/img/nav/时间轴.svg" alt="" style="width: 16px; height: 16px;">
-                <span>时间轴</span>
-              </div>
-              `,
-            link: 'https://onedayxyy.cn/time-line/',
-          },
-          {
-            text: `
-              <div style="display: flex; align-items: center; gap: 4px;">
-                <img src="/img/nav/网站统计.svg" alt="" style="width: 16px; height: 16px;">
-                <span>网站统计</span>
-              </div>
-              `,
-            link: 'https://umami.onedayxyy.cn/share/DzS4g85V8JkxsNRk/onedayxyy.cn',
-          },
-          {
-            text: `
-              <div style="display: flex; align-items: center; gap: 4px;">
-                <img src="/img/nav/站点监控.svg" alt="" style="width: 16px; height: 16px;">
-                <span>站点监控</span>
-              </div>
-              `,
-            link: 'https://status.onedayxyy.cn/status/monitor',
-          },
-
-        ],
-      },       
-    ],
-
-    socialLinks: [{ icon: "gitee", link: "https://gitee.com/onlyonexl/vitepress-theme-teek-one-public" }],
+    socialLinks: SocialLinks, // 社交链接配置
 
     search: {
       provider: "local",
@@ -612,7 +332,18 @@ export default defineConfig({
     },
     plugins: [
       groupIconVitePlugin(), //代码组图标
-    
+      viteImagemin({
+        gifsicle: { optimizationLevel: 7 },
+        mozjpeg: { quality: 70 },
+        pngquant: { quality: [0.7, 0.8] },
+        svgo: {
+          plugins: [
+            { name: "removeViewBox" },
+            { name: "removeEmptyAttrs", active: false },
+          ],
+        },
+      }),
+      llmstxt(), // 插入llmstxt
 
       La51Plugin({
         id: "你id",
@@ -622,11 +353,45 @@ export default defineConfig({
     ],
     //其他配置项 
     build: {
+      chunkSizeWarningLimit: 35000, // 限制警告的块大小
       assetsInlineLimit: 4096, // 小于 4KB 的字体转为 base64
-      chunkSizeWarningLimit: 35000, // 限制警告的块大小   
+      minify: "terser", // 使用 Terser 进行代码压缩
       rollupOptions: {
-        external: ['**/_*.md'], // 忽略所有以下划线开头的 Markdown 文件
-      },      
+        plugins: [
+          visualizer({
+            filename: "./stats.html", // 修改为当前目录下的相对路径
+            open: false, // 打包后自动打开报告
+            gzipSize: true, // 压缩大小
+            brotliSize: true,
+          }),
+        ],
+        output: {
+          manualChunks: {
+            theme: ["vitepress-theme-teek"],
+          },
+        },
+      },
+      terserOptions: {
+        compress: {
+          drop_console: true, // 移除所有 console.* 调用（生产环境建议开启）
+          drop_debugger: true, // 移除 debugger 语句（生产环境必备）
+          pure_funcs: ["console.info"], // 保留 console.info 调用（白名单机制）
+          dead_code: true, // 移除不可达代码（消除死代码）
+          arrows: true, // 将 function 转换为箭头函数（优化代码体积）
+          unused: true, // 移除未使用的变量/函数（需确保不影响程序逻辑）
+          join_vars: true, // 合并连续 var 声明（优化作用域）
+          collapse_vars: true, // 内联单次使用的变量（体积优化）
+        },
+        format: {
+          comments: false, // 移除所有注释（保留版权声明需使用正则表达式）
+          beautify: false, // 禁用代码美化（进一步减小体积）
+          preamble: "/* 项目版本 1.0.0 */", // 文件头部添加版权声明（需遵守 MIT 协议）
+        },
+        mangle: {
+          toplevel: true, // 混淆顶级作用域变量名（保留 class/function 名称）
+          properties: false, // 保留对象属性名（防止破坏 DOM 属性绑定）
+        },
+      },
     },
   },    
 })
