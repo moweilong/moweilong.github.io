@@ -29,3 +29,5 @@ coverage
 
 /cypress/videos/
 /cypress/screenshots/
+
+/**/.vitepress/cache/

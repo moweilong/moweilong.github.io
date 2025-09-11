@@ -15,20 +15,19 @@ export const FooterInfo = {
 
     <a target="_blank" href="https://www.ucloud.cn/" title="本站部署服务使用 ucloud"><img alt="ucloud" src="https://img.shields.io/badge/Ucloud-Server?logo=alibabacloud&label=Server&color=%23FF6A00"></a> 
 
-    <a target="_blank" href="https://www.dogecloud.com/" title="本站部署服务使用 dogecloud"><img alt="dogecloud" src="https://img.shields.io/badge/多吉云-CDN?logo=alibabacloud&label=CDN&color=%23FF6A00"></a>
+    <a target="_blank" href="https://edgeone.ai/zh" title="本站部署服务使用 EdgeOne"><img alt="EdgeOne" src="https://img.shields.io/badge/EdgeOne-CDN?logo=alibabacloud&label=CDN&color=%23FF6A00"></a>
     
-    <a target="_blank" href="https://umami.is/" title="本站统计服务使用 Umami"><img alt="Umami" src="https://img.shields.io/badge/umami-000000?logo=umami&label=Count&color=%23FF6A00"></a>
+    <a target="_blank" href="https://51.la/" title="本站统计服务使用 51.LA"><img alt="51.LA" src="https://img.shields.io/badge/51.LA-000000?logo=51.LA&label=Count&color=%23FF6A00"></a>
 
     
     <a target="_blank" href="https://nginx.org/" title="本站Nginx反向代理服务 Nginx"><img alt="Nginx" src="https://img.shields.io/badge/Nginx-Proxy?logo=Nginx&label=Proxy"></a>`,
   ],
   theme: {
-    name: `Theme By Teek@${version}-2025-06-03`,
+    name: `Theme By Teek@${version}-2025.8.31`,
   },
   bottomMessage: [
     `<script id="LA-DATA-WIDGET" crossorigin="anonymous" charset="UTF-8" src="https://v6-widget.51.la/v6/3LmZHLhDZIDpMaT0/quote.js?theme=#1690FF,#333333,#999999,#007BFF,#FFFFFF,#1690FF,12&f=12&display=0,0,1,1,1,1,1,1"></script>`,
-    `<span id="runtime"></span>(●'◡'●)`,
-    `<a href="https://51.la/" target="_blank" style="display:flex;align-items:center;justify-content:center;">本网站由<img src="https://51.la/favicon.ico" style="width:16px;height:16px;" alt="51.LA"> 51.LA 提供数据统计服务</a>`,
+    // `<span id="runtime"></span>(●'◡'●)`,
     "初闻不知曲中意，再听已是曲中人",
   ],
   copyright: {

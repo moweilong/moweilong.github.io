@@ -136,7 +136,7 @@ onMounted(async () => {
           icon: "icon-about",
           title: "关于",
           onClick: () => {
-            window.open("https://github.com/hacxy");
+            window.open("https://onedayxyy.cn/");
           },
         },
         {
@@ -144,7 +144,7 @@ onMounted(async () => {
           icon: "icon-gitee",
           title: "gitee",
           onClick: () => {
-            window.open("https://gitee.com/onlyonexl/vitepress-theme-teek-one-public");
+            window.open("https://cnb.cool/onedayxyy/vitepress-theme-teek-one-public");
           },
         },
       ],
