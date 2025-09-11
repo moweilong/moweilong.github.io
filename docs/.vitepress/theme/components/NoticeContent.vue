@@ -7,7 +7,7 @@ const namespace = "notice";
     <p>微信 👇</p>
     <img src="/img/wechat/wechat.png"
       alt="QR Code" />
-    <p class="">全网最美博客-teek(知识库&博客二合一) --正在持续迭代，欢迎大家尝鲜及提出新需求，共同打造一个完美的作品。</p>
+    <p class="">Teek~一款简约、唯美、丝滑且强大的VitePress主题博客(知识库&博客二合一) ，欢迎交流学习！🎉</p>
   </div>
 </template>
 

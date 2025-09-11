@@ -12,7 +12,7 @@ export const FriendLink = {
   // 友情链接数据列表
   list: [
     {
-      avatar: "/teeker-logo-large.png",
+      avatar: "/teek-logo-large.png",
       name: "vitepress-theme-teek",
       desc: "Teek官网",
       link: "https://vp.teek.top/",
@@ -24,7 +24,7 @@ export const FriendLink = {
       avatar: "https://testingcf.jsdelivr.net/gh/Kele-Bingtang/static/user/avatar2.png",
     },     
     {
-      avatar: "/img/website/hyde.ico",
+      avatar: "https://img.onedayxyy.cn/images/Teekwebsite/hyde.webp",
       name: "Hyde Blog",
       desc: "人心中的成见是一座大山",
       link: "https://teek.seasir.top/",
@@ -36,41 +36,41 @@ export const FriendLink = {
       link: "https://wiki.eryajf.net/",
     },
     {
-      avatar: "/img/website/sugarat.top-logo.jpeg",
+      avatar: "https://img.onedayxyy.cn/images/Teekwebsite/sugarat.top-logo.jpeg",
       name: "粥里有勺糖",
-      desc: "大佬，新颖，不错的VitePress主题",
+      desc: "你的指尖,拥有改变世界的力量",
       link: "https://sugarat.top/",
     },
     {
-      name: "VitePress 快速上手中文教程",
-      desc: "如果你也想搭建它，那跟我一起做吧",
-      link: "https://vitepress.yiov.top/",
-      avatar: "https://avatars.githubusercontent.com/u/90893790?v=4",
-    },
-    {
-      avatar: "https://onedayxyy.cn/images/POETIZE-logo.jpg",
+      avatar: "https://img.onedayxyy.cn/images/POETIZE-logo.jpg",
       name: "POETIZE",
       desc: "最美博客",
       link: "https://poetize.cn/",
     },
     {
-      avatar: "https://onedayxyy.cn/images/image-20250220073534772.png",
+      avatar: "https://img.onedayxyy.cn/images/image-20250220073534772.png",
       name: "宇阳",
       desc: "记录所学知识，缩短和大神的差距！",
       link: "https://liuyuyang.net",
     },
     {
-      avatar: "https://sinc.us.kg/avatar/avatar.webp",
-      name: "凿壁偷光不算偷",
-      desc: "tk 道友",
-      link: "https://sinc.us.kg/",
-    },
-    {
-      avatar: "https://zhouyu2156.github.io/favicon.png",
-      name: "极客兔 - 笔记站",
-      desc: "一心创作优质内容",
-      link: "https://zhouyu2156.github.io/",
+      avatar: "https://img.onedayxyy.cn/images/Teekwebsite/blog.grtsinry43.com.jpeg",
+      name: "Grtsinry43’s Blog",
+      desc: "总之岁月漫长，然而值得等待 ",
+      link: "https://blog.grtsinry43.com/",
     },  
+    {
+      avatar: "https://img.onedayxyy.cn/images/Teekwebsite/blog.zhheo.com.png",
+      name: "张洪Heo",
+      desc: "分享设计与科技生活",
+      link: "https://blog.zhheo.com/",
+    },    
+    {
+      name: "王嘉祥",
+      desc: "唱响科普和人生兴事，分享科技与美好生活（rust写的zola主题，移植于张洪heo）",
+      link: "https://blog.jiaxiang.wang/",
+      avatar: "https://img.onedayxyy.cn/images/Teekwebsite/blog.jiaxiang.wang.webp",
+    },    
   ],
   // autoScroll: true,
 };

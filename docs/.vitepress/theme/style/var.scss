@@ -1,9 +1,13 @@
 /* var.scss */
 :root {
+
+  // --tk-home-max-width: max(70%, 1330px); /* 现代浏览器会使用这个值 */
+  // --tk-home-max-width:  calc(100% - 100% / 3);
+  
   --vp-c-brand-1: var(--vp-c-indigo-2);
 
-  --vp-c-indigo-2: #299764; //预设hover
-  --vp-c-indigo-3: #299764; //预设
+  // --vp-c-indigo-2: #299764; //预设hover
+  // --vp-c-indigo-3: #299764; //预设
   --vp-c-green-2: #299764; //绿色hover
   --vp-c-green-3: #30a46c; //绿色
   --vp-c-yellow-2: #e7a200; //黄色hover
@@ -49,10 +53,11 @@
   color: transparent;
 }
 
-#hero-text,
-.VPHero.has-image .name {
-  @include text-gradient;
-}
+// 草莓熊色
+// #hero-text,
+// .VPHero.has-image .name {
+//   @include text-gradient;
+// }
 
 .VPHero.has-image .tagline {
   background: linear-gradient(to right, rgb(48, 153, 255) 0%, rgb(141, 133, 255) 63%, rgb(79, 76, 255) 100%) text;
@@ -135,4 +140,22 @@ span {
 
 
 
-// ----
+
+// 解决首页性能问题（这个fixed属性导致下方博客列表滚动卡顿，去掉就好）
+.tk-banner-bg-image.full {
+  background: var(--tk-banner-img-bg);
+  transition: background 1s;
+}
+
+
+
+/* .vitepress/theme/style/var.css */
+// 首页特性悬停效果 2025年8月14日 更新
+/* VPFeatures 页卡悬浮效果 */
+.VPFeatures .items .item {
+  transition: transform 0.3s;
+}
+
+.VPFeatures .items .item:hover {
+  transform: translateY(-5px);
+}

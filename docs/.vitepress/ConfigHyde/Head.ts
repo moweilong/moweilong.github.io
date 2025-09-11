@@ -36,6 +36,9 @@ export const HeadData = [
   ],
   ["meta", { name: "referrer", content: "no-referrer-when-downgrade" }], //不蒜子统计
   ["meta", { name: "author", content: "Tianke" }],
+  ['meta', { property: 'og:description', content: '明心静性，爱自己' }],
+  ['meta', { property: 'og:image', content: 'https://onedayxyy.cn/img/xyy.webp' }],
+
   [
     "meta",
     {
@@ -92,25 +95,28 @@ export const HeadData = [
 
 
 
-  //免费的音乐播放器
-  [
-    "script",
-    {
-      type: "text/javascript",
-      src: "https://cdn.bootcdn.net/ajax/libs/jquery/3.7.1/jquery.min.js",
-      // src: "https://myhkw.cn/player/js/jquery.min.js",
-    },
-  ], 
-  [
-    "script",
-    {
-      type: "text/javascript",
-      id: "myhk",
-      src: "https://myhkw.cn/api/player/1741345067120",
-      key: "1741345067120",
-      m: "1",
-      lr: "r",
-      defer: "defer",  // 添加defer属性，确保脚本在DOM加载完成后执行
-    },
-  ],
+  // //免费的音乐播放器
+  // [
+  //   "script",
+  //   {
+  //     type: "text/javascript",
+  //     src: "https://cdn.bootcdn.net/ajax/libs/jquery/3.7.1/jquery.min.js",
+  //     // src: "https://myhkw.cn/player/js/jquery.min.js",
+  //   },
+  // ], 
+  // [
+  //   "script",
+  //   {
+  //     type: "text/javascript",
+  //     id: "myhk",
+  //     src: "https://myhkw.cn/api/player/1741345067120",
+  //     key: "1741345067120",
+  //     m: "1",
+  //     lr: "r",
+  //     defer: "defer",  // 添加defer属性，确保脚本在DOM加载完成后执行
+  //   },
+  // ],
+
+  // 阿里图标库symbol 引用
+  ["script",{src: "https://at.alicdn.com/t/c/font_4686603_33kna2v5qcm.js",defer: "defer",},],  
 ];
