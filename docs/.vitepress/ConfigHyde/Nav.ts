@@ -58,6 +58,15 @@ export const Nav = [
           text: `
             <div style="display: flex; align-items: center; gap: 4px;">
               <img src="/img/nav/teek.svg" alt="" style="width: 16px; height: 16px;">
+              <span>统一应用日志中心</span>
+            </div>
+            `,
+          link: '/zhuanti/ualc-index',
+        },  
+        {
+          text: `
+            <div style="display: flex; align-items: center; gap: 4px;">
+              <img src="/img/nav/teek.svg" alt="" style="width: 16px; height: 16px;">
               <span>Teek</span>
             </div>
             `,

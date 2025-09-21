@@ -31,16 +31,16 @@ export const FooterInfo = {
     "初闻不知曲中意，再听已是曲中人",
   ],
   copyright: {
-    createYear: 2021,
-    suffix: "One Blog",
+    createYear: 2025,
+    suffix: "Mo Blog",
   },
   icpRecord: {
-    name: "陇ICP备2023002645号",
+    name: "中国ICP备2025060708号",
     link: "http://beian.miit.gov.cn/",
   },
   // 网络安全备案信息配置
   securityRecord: {
-    name: "甘公网安备62102702000211号",
+    name: "中国公网安备2025060708号",
     link: "https://beian.mps.gov.cn/",
   },
   customHtml: ``, // 搭配 ./theme/composables/useRuntime.ts

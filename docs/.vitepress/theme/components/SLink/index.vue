@@ -37,10 +37,10 @@
         <p>欢迎在评论区留言，格式如下：</p>
         <!-- 示例格式 -->
         <pre>
-名称: One
-链接: https://onedayxyy.cn/
-头像: https://img.onedayxyy.cn/images/Teekwebsite/xyy-logo.webp
-站点截图：https://img.onedayxyy.cn/images/image-20250502073710566.png
+名称: Mo
+链接: https://wiki.moweilong.com/
+头像: https://wiki.moweilong.com/images/Teekwebsite/xyy-logo.webp
+站点截图：https://wiki.moweilong.com/images/image-20250502073710566.png
 描述: 明心静性，爱自己</pre>
         <!-- 评论区插槽 -->
         <!-- 默认为Twikoo评论组件，可通过插槽自定义其他评论系统 -->

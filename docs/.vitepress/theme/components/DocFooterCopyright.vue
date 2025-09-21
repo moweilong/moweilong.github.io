@@ -51,10 +51,10 @@ import { useData, useRoute } from 'vitepress'
 
 // 统一配置区
 const config = {
-  authorName: 'One',
-  authorUrl: 'https://onedayxyy.cn/',
-  siteName: 'One Blog',
-  siteUrl: 'https://onedayxyy.cn/',
+  authorName: 'Mo',
+  authorUrl: 'https://wiki.moweilong.com/',
+  siteName: 'Mo Blog',
+  siteUrl: 'https://wiki.moweilong.com/',
   licenseName: 'CC BY-NC-SA 4.0',
   licenseUrl: 'https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh'
 }

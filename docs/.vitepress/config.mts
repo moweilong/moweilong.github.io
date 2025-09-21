@@ -3,12 +3,9 @@ import { defineTeekConfig } from "vitepress-theme-teek/config";
 import { version } from "vitepress-theme-teek/es/version";
 import { Wallpaper } from "./ConfigHyde/Wallaper"; // 导入Wallaper模块
 import { Cover } from "./ConfigHyde/Cover"; // 导入Wallaper模块
-
 import { CommentData } from "./ConfigHyde/Comment"; //导入评论配置
 import { Nav } from "./ConfigHyde/Nav"; // 导入Nav模块
 import { SocialLinks } from "./ConfigHyde/SocialLinks"; //导入社交链接配置
-
-
 
 import {
   groupIconMdPlugin,
@@ -25,10 +22,6 @@ import { createRewrites } from "vitepress-theme-teek/config";
 import AutoFrontmatter, {FileInfo} from "vitepress-plugin-auto-frontmatter";
 import { useTransformByRules, type TransformRule } from "./theme/composables/useTransform";
 
-
-
-
-
 const description = [
   "欢迎来到 vitepress-theme-teek 使用文档",
   "Teek 是一个基于 VitePress 构建的主题，是在默认主题的基础上进行拓展，支持 VitePress 的所有功能、配置",
@@ -36,7 +29,6 @@ const description = [
 ].toString();
 const CoverImgList = Cover; // 获取壁纸列表
 // const CoverBgList = Wallpaper; // 获取壁纸列表
-
 
 const teekConfig = defineTeekConfig({
   // // 首页顶部按 F11 开启壁纸模式
@@ -49,7 +41,6 @@ const teekConfig = defineTeekConfig({
 
   loading: false, // 启用 Loading 动画，为 false 则关闭 Loading 动画
   // loading: "正在加载中...", // 修改 Loading 文案
-
 
   themeEnhance: {
     themeColor: {
@@ -65,7 +56,7 @@ const teekConfig = defineTeekConfig({
     // 博主信息，显示在首页侧边栏
     avatar: "/img/xyy.webp",  //侧边栏个人头像
     shape: "circle-rotate", // 头像风格：square 为方形头像，circle 为圆形头像，circle-rotate 可支持鼠标悬停旋转
-    name: "One", // 侧边栏个人昵称
+    name: "Mo", // 侧边栏个人昵称
     slogan: "明心静性，爱自己", // 侧边栏个人座右铭
     circleBgImg: "https://img.onedayxyy.cn/images/TeekBg/14.webp", // 侧边栏个人头像圆形背景图
     circleBgMask: false, // 头像圆形背景图是否显示遮罩层
@@ -78,7 +69,6 @@ const teekConfig = defineTeekConfig({
       title: "有趣", // 鼠标悬停图标的提示语
     },
   },
-
 
   // 分类卡片
   category: {
@@ -94,7 +84,6 @@ const teekConfig = defineTeekConfig({
     autoPage: false, // 是否自动翻页
     pageSpeed: 4000, // 翻页间隔时间，单位：毫秒。autoPage 为 true 时生效
   },
-
 
   // 精选文章卡片
   topArticle: {
@@ -113,25 +102,6 @@ const teekConfig = defineTeekConfig({
   // 首页尺寸变大
   themeSize: "large",
 
-  // // 布蒜子统计分析
-  // docAnalysis: {
-  //   createTime: "2021-10-19",
-  //   statistics: {
-  //     // provider: "busuanzi",
-  //     provider: "vercount",
-  //     // provider: "busuanzi",
-  //     // url: "//bsz.eryajf.net/jsonp?callback=Busuanzicallback"
-  //   },
-  //   wordCount: true,
-  //   readingTime: true,
-  //   // overrideInfo: [
-  //   //   { key: "lastActiveTime", value: (_, currentValue) => `${currentValue}前` },
-  //   //   { key: "totalPosts", label: "文章总数目" },
-  //   // ],
-  //   appendInfo: [{ key: "index", label: "序号", value: "One" }],
-  // },
-
-
 // 布蒜子统计分析
   docAnalysis: {
     createTime: "2025-02-26",
@@ -146,16 +116,12 @@ const teekConfig = defineTeekConfig({
     readingTime: true,
   },
 
-
   // 风险链接提示页
   riskLink: {
     enabled: true, //是否启用风险链接提示功能
-    whitelist: ["https://onedayxyy.cn/", "https://status.onedayxyy.cn/", "https://umami.onedayxyy.cn/", "https://zola.onedayxyy.cn/", "https://img.onedayxyy.cn/", "https://cnb.cool/onedayxyy/vitepress-theme-teek-one-public", "https://one.onedayxyy.cn/", "https://vp.teek.top/", "https://teek.seasir.top/", /https:\/\/github.com/, /https:\/\/giee.com/], // 白名单，匹配到的链接不提示风险
+    whitelist: ["https://wiki.moweilong.com", /https:\/\/github.com/, /https:\/\/giee.com/], // 白名单，匹配到的链接不提示风险
     blacklist: [], // 黑名单，匹配到的链接提示风险
   },
-
-
-
 
   // articleBottomTip: () => {
   //   return {
@@ -262,7 +228,6 @@ const teekConfig = defineTeekConfig({
     permalink: true,
     sidebar: true,
 
-
     sidebarOption: {
       // initItems: false, //这条命令注释后，才会让文档和目录的样式保持一致
       collapsed: true, //打开侧边栏自动收缩功能
@@ -319,7 +284,6 @@ const teekConfig = defineTeekConfig({
     },
   ],
 
-
   // 赞赏在文章下方
   appreciation: {
     position: "doc-after",
@@ -341,7 +305,7 @@ export default defineConfig({
   }),
 
   extends: teekConfig,
-  title: "One", //左上角网站名称
+  title: "Mo", //左上角网站名称
   description: description,
   cleanUrls: true,  //设置为true就是让链接后不默认添加.html
   lastUpdated: true,
@@ -364,7 +328,7 @@ export default defineConfig({
     },
   },
   sitemap: {
-    hostname: "https://onedayxyy.cn",
+    hostname: "https://wiki.moweilong.com",
     // transformItems: items => {
     //   const permalinkItemBak: typeof items = [];
     //   // 使用永久链接生成 sitemap
@@ -468,7 +432,7 @@ export default defineConfig({
     editLink: {
       text: "在 GitHub 上编辑此页",
       // pattern: "https://github.com/Kele-Bingtang/vitepress-theme-teek/edit/master/docs/:path",
-      pattern: "https://onedayxyy.cn/teek/teek-one",
+      pattern: "https://wiki.moweilong.com",
     },
   },
 
