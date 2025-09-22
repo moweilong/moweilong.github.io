@@ -61,7 +61,7 @@ export const Nav = [
               <span>统一应用日志中心</span>
             </div>
             `,
-          link: '/zhuanti/ualc-index',
+          link: '/zhuanti/ualc/ualc-index',
         },  
         {
           text: `
