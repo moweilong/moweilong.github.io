@@ -48,7 +48,7 @@ export const Nav = [
           link: '/hacker/hacker-index',
         },
       ],
-    },  
+    },
 
     // 专题
     {
@@ -57,21 +57,21 @@ export const Nav = [
         {
           text: `
             <div style="display: flex; align-items: center; gap: 4px;">
-              <img src="/img/nav/teek.svg" alt="" style="width: 16px; height: 16px;">
+              <img src="/img/nav/ualc1.png" alt="" style="width: 16px; height: 16px;">
               <span>统一应用日志中心</span>
             </div>
             `,
           link: '/zhuanti/ualc/ualc-index',
-        },  
+        },
         {
           text: `
             <div style="display: flex; align-items: center; gap: 4px;">
-              <img src="/img/nav/teek.svg" alt="" style="width: 16px; height: 16px;">
-              <span>Teek</span>
+              <img src="/img/nav/kubernetes.svg" alt="" style="width: 16px; height: 16px;">
+              <span>Kubernetes</span>
             </div>
             `,
-          link: '/teek/teek-blog',
-        },        
+          link: '/zhuanti/kubernetes/kubernetes-index',
+        },
         {
           text: `
             <div style="display: flex; align-items: center; gap: 4px;">
@@ -143,9 +143,9 @@ export const Nav = [
             </div>
             `,
           link: '/zhuanti/opensource',
-        },        
+        },
       ],
-    },  
+    },
 
 
 
@@ -247,10 +247,10 @@ export const Nav = [
               link: '/xingqu/reading',
             },
           ],
-        },  
+        },
 
       ],
-    },  
+    },
 
 
     // // 兴趣
@@ -276,9 +276,9 @@ export const Nav = [
     //       link: '/xingqu/reading',
     //     },
     //   ],
-    // },  
-    
-    
+    // },
+
+
     // 索引
     {
       text: '👏索引',
@@ -322,7 +322,7 @@ export const Nav = [
           link: '/risk-link?target=https://onedayxyy.cn/',
         },
       ],
-    },  
+    },
 
     // 关于
     {
@@ -331,7 +331,7 @@ export const Nav = [
         { text: '👋关于我', link: '/about/me' },
         { text: '🎉关于本站', link: '/about/website' },
         { text: '💖友链', link: '/about/friend-links' },
-        { text: '🌐网站导航', link: '/about/websites' },          
+        { text: '🌐网站导航', link: '/about/websites' },
         { text: "👂留言区", link: "/about/liuyanqu" },
         { text: "💡思考", link: "/about/thinking" },
         {
@@ -363,5 +363,5 @@ export const Nav = [
         },
 
       ],
-    },       
+    },
   ]
