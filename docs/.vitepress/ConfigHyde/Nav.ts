@@ -70,7 +70,7 @@ export const Nav = [
               <span>Kubernetes</span>
             </div>
             `,
-          link: '/zhuanti/kubernetes/kubernetes-index',
+          link: '/kubernetes/kubernetes-index',
         },
         {
           text: `
