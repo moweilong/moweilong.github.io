@@ -470,6 +470,7 @@ export default defineConfig({
                   { folderName: "10.运维", prefix: "/linux/$uuid5", removeLevel: 99}, // 清空前缀并且添加前缀使用随机数
                   { folderName: "20.前端", prefix: "/qianduan/$uuid5", removeLevel: 99}, // 清空前缀并且添加前缀使用随机数
                   { folderName: "30.编程", prefix: "/code/$uuid5", removeLevel: 99}, // 清空前缀并且添加前缀使用随机数
+                  { folderName: "31.网络", prefix: "/network/$uuid5", removeLevel: 99}, // 清空前缀并且添加前缀使用随机数
                   { folderName: "35.黑客", prefix: "/hacker/$uuid5", removeLevel: 99}, // 清空前缀并且添加前缀使用随机数
                   { folderName: "40.专题", prefix: "/zhuanti/$uuid5", removeLevel: 99}, // 清空前缀并且添加前缀使用随机数
                   { folderName: "50.工具", prefix: "/tools/$uuid5", removeLevel: 99}, // 清空前缀并且添加前缀使用随机数

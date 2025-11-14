@@ -42,6 +42,15 @@ export const Nav = [
           text: `
             <div style="display: flex; align-items: center; gap: 4px;">
               <img src="/img/nav/黑客.svg" alt="" style="width: 16px; height: 16px;">
+              <span>网络</span>
+            </div>
+            `,
+          link: '/network/network-index',
+        },
+        {
+          text: `
+            <div style="display: flex; align-items: center; gap: 4px;">
+              <img src="/img/nav/黑客.svg" alt="" style="width: 16px; height: 16px;">
               <span>黑客</span>
             </div>
             `,
